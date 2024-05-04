@@ -1,7 +1,9 @@
 class_name StateMachine
+
 extends Node
 
 @export var start_state: NodePath
+
 @onready var state: State = get_node(start_state)
 
 # Called when the node enters the scene tree for the first time.
@@ -24,3 +26,5 @@ func change_to(target_state: String, msg: Dictionary = {}):
 	state.exit()
 	state = get_node(target_state)
 	state.enter(msg)
+
+
