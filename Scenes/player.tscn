@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv5y3bisx1woc"]
+
+[ext_resource type="Script" path="res://diplom/Scripts/Player/player.gd" id="1_a2wj4"]
+[ext_resource type="Texture2D" uid="uid://c3lqm42uh8cap" path="res://diplom/Sprites/Player/Player.png" id="1_icmum"]
+[ext_resource type="Script" path="res://diplom/Scripts/StateMachine/StateMachine.gd" id="2_8alsr"]
+[ext_resource type="Script" path="res://diplom/Scripts/Player/States/idle.gd" id="3_2kxt1"]
+[ext_resource type="Script" path="res://diplom/Scripts/Player/States/move.gd" id="4_l5y7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yoil"]
+size = Vector2(56, 48)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_a2wj4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 36)
+shape = SubResource("RectangleShape2D_0yoil")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_as_relative = false
+position = Vector2(32, 32)
+texture = ExtResource("1_icmum")
+
+[node name="Debug" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBox" type="VBoxContainer" parent="Debug"]
+layout_mode = 1
+anchors_preset = -1
+offset_top = -56.0
+offset_right = 64.0
+
+[node name="Coords" type="Label" parent="Debug/VBox"]
+layout_mode = 2
+text = "Coords"
+
+[node name="State" type="Label" parent="Debug/VBox"]
+layout_mode = 2
+text = "State"
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_8alsr")
+start_state = NodePath("idle")
+
+[node name="idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_2kxt1")
+
+[node name="move" type="Node" parent="StateMachine"]
+script = ExtResource("4_l5y7s")
