@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cv5y3bisx1woc"]
+[gd_scene load_steps=7 format=3 uid="uid://h30e05xpj2ol"]
 
 [ext_resource type="Script" path="res://diplom/Scripts/Player/player.gd" id="1_a2wj4"]
 [ext_resource type="Texture2D" uid="uid://c3lqm42uh8cap" path="res://diplom/Sprites/Player/Player.png" id="1_icmum"]

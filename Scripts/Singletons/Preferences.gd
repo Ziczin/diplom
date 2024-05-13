@@ -1,3 +1,3 @@
 extends Node
-var base_speed = 64
+var base_speed = 64*3
 
